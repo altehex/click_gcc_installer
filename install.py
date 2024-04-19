@@ -28,7 +28,7 @@ def build_binutils(prefix, target, quiet):
                     "--with-sysroot",
                     "--disable-nls", quiet], check=True)
     subprocess.run(["make", quiet], check=True)
-    subprocess.run(["make install", quiet], check=True)    
+    subprocess.run(["make", "install", quiet], check=True)    
 
 GCC_NAME = 'gcc-13.2.0'
 GCC_EXT  =            '.tar.gz'
@@ -40,10 +40,10 @@ def build_gcc(prefix, target, quiet):
                     "--disable-nls",
                     "--enable-languages=c,c++",
                     "--without-headers", quiet], check=True)
-    subprocess.run(["make all-gcc", quiet], check=True)
-    subprocess.run(["make all-target-libgcc", quiet], check=True)
-    subprocess.run(["make install-gcc", quiet], check=True)
-    subprocess.run(["make install-target-libgcc", quiet], check=True)
+    subprocess.run(["make", "all-gcc", quiet], check=True)
+    subprocess.run(["make", "all-target-libgcc", quiet], check=True)
+    subprocess.run(["make", "install-gcc", quiet], check=True)
+    subprocess.run(["make", "install-target-libgcc", quiet], check=True)
 
 class Archive:
     def __init__(self, name, ext, url, build):
